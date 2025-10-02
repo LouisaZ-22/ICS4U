@@ -12,4 +12,20 @@ function manageFruits() {
     }
 }
 
-manageFruits();
+//manageFruits();
+
+let person = {
+    age: 15,
+    name: "LynZie",
+    isStudent: true,
+}
+let arr = [1, 3, 'stuff', person];
+console.log(arr);
+
+// jsonString = JSON.stringify(arr)
+// console.log(jsonString);
+// console.log(JSON.parse(jsonString));
+
+let test = arr.splice(1,1);
+console.log(test);
+console.log(arr);

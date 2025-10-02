@@ -1,10 +1,17 @@
 const prompt = require('prompt-sync')();
 
-let budget = parseFloat(prompt('Enter your budget: '));
+let budget = prompt('Enter your budget: ');
+while(isNaN(Number(budget))) {
+    console.log('Invalid budget, try again please :(');
+    budget = prompt('Enter your budget: ');
+}
+console.log(`your budget is ${budget} \n`);
+
 let array = [];
 let total = 0;
 let option = 0;
 let isRunning = true;
+
 
 function addExpense(amount, category) {
     let expense = {
@@ -13,7 +20,7 @@ function addExpense(amount, category) {
     };
     array.push(expense);
     total += expense.amt;
-    console.log('an expense was added \n');
+    console.log(`an expense of ${expense.amt} was added \n`);
 }
 
 function calculateTotal() {
@@ -33,9 +40,9 @@ function checkBudget() {
 function removeExpense(category) {
     for (let i = 0; i < array.length; i++) {
         if (array[i].cat == category) {
-            array.splice(i,1);
             total -= array[i].amt;
-            console.log('an expense has been removed \n');
+            console.log(`an expense of ${array[i].amt} has been removed \n`);
+            array.splice(i,1);
             break;
         }
     }
