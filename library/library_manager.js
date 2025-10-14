@@ -36,7 +36,7 @@ while (isRunning) {
             console.log('bye bye ;)')
             break
         default:
-            console.log('Invalid option, try again >:( \n')
+            console.log('Invalid option, try again :( \n')
     }
 }
 
