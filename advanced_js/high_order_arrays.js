@@ -6,7 +6,7 @@ console.log(sqrArr)
 
 
 // students with > 80 grades
-const students = [{name: 'Elliot', grade: '94'}, {name: 'Benjamin', grade: 80}, {name: 'Keianna', grade: 71}]
+const students = [{name: 'Elliot', grade: 94}, {name: 'Benjamin', grade: 80}, {name: 'Keianna', grade: 71}]
 const eighties = students.filter(s => s.grade > 80)
 console.log(eighty)
 
@@ -54,3 +54,6 @@ console.log(flatArr)
 const movies = [{title: '1', year: 2022}, {title: '2', year: 1993}, {title: '3', year: 2000}]
 const sortArr = movies.sort((m1, m2) => m1.year - m2.year)
 console.log(sortArr)
+
+const arr = ["alpha", "bet", "steve", "chalk", "daniel", "penguin"].sort((a, b) => b.length - a.length)
+console.log(arr)
