@@ -15,11 +15,11 @@ const getTodos = (resource, callback) => {
             // check state + errors: 200s ok, 400s client side, 500s server side
             if (request.readyState === 4 && request.status === 200) {
                 const data = JSON.parse(request.responseText)    // turn JSON string into object array
-                callback(undefined, data)
+                // callback(undefined, data)
                 resolve(data)
             } 
             else if (request.readyState === 4) {
-                callback('could not fetch data', undefined)
+                // callback('could not fetch data', undefined)
                 reject('error getting resource')
             }
         })
@@ -38,33 +38,33 @@ getTodos('todos.json', (err, data) => {    // callback function => specify what 
 
     getTodos('https://jsonplaceholder.typicode.com/todos/', (err, data) => {
         console.log(err, data)
-    });
-});
+    })
+})
 
-// promise
-getTodos('todos.json').then(data => {         // this function fires if resolved
-    console.log('promise resolved:', data)
-}).catch(err => {                             // this function fires if rejected
+// promise (chaining)
+getTodos('todos.json').then(data => {         // fires if 1st promise resolved
+    console.log('promise 1 resolved:', data)
+    return getTodos('https://jsonplaceholder.typicode.com/todos/')
+}).then(data => {                             // fires if 1st and 2nd promise resolved
+    console.log('promise 2 resolved:', data)
+}).catch(err => {                             // fires if any are rejected
     console.log('promise rejected:', err)
 })
 
-// promise
-const getSomething = () => {
-    return new Promise((resolve, reject) => {
-        // fetch something
-        resolve('some data')
-        reject('some error')
-    });
-}
 
-getSomething().then(data => {    // this function fires if resolved
-    console.log(data)
-}, err => {                      // this function fires if rejected
-    console.log(err)
-})
-// OR
-getSomestuff().then(data => {
+
+// fetch API => basically built-in getTodos, 2 asynchronous actions
+fetch('todos.json').then(response => {
+    console.log('resolved', response)     // returns response, not data, only rejects if network error
+    return response.json()
+}).then(data => {                         // returns data, check for other errors e.g. status
     console.log(data)
 }).catch(err => {
-    console.log(err)
+    console.log('rejected', err)
 })
+
+
+const getTodos2 = async() => {
+    const response = await fetch('todos.json')
+    console.log(response)
+}
