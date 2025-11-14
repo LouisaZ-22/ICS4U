@@ -64,7 +64,21 @@ fetch('todos.json').then(response => {
 })
 
 
-const getTodos2 = async() => {
-    const response = await fetch('todos.json')
-    console.log(response)
+
+// await + async => bundle async code into one function
+const getTodos2 = async () => {
+    const response1 = await fetch('todos.json')     // await => stalls, don't assign value until resolved
+    if (response1.status !== 200)
+        throw new Error('cannot fetch data')        // catch error in resource
+
+    const data1 = await response.json()             // catch error in json
+
+    const response2 = await fetch('https://jsonplaceholder.typicode.com/todos/')        // chaining
+    const data2 = await response.json()
+
+    return data1
 }
+
+getTodos2()
+    .then(data => console.log('resolved:', data1))
+    .catch(err => console.log('rejected:', err.message))
