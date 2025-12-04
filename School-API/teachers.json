@@ -1,0 +1,8 @@
+[
+    { "id": 1, "firstName": "Laura", "lastName": "Chen", "email": "laura.chen@example.com", "department": "Mathematics", "room": "M201" },
+    { "id": 2, "firstName": "James", "lastName": "Hargrove", "email": "james.hargrove@example.com", "department": "Science", "room": "S110" },
+    { "id": 3, "firstName": "Elena", "lastName": "Morales", "email": "elena.morales@example.com", "department": "English", "room": "E305" },
+    { "id": 4, "firstName": "Robert", "lastName": "King", "email": "robert.king@example.com", "department": "History", "room": "H214" },
+    { "id": 5, "firstName": "Sara", "lastName": "Nakamura", "email": "sara.nakamura@example.com", "department": "Computer Science", "room": "C102" },
+    { "id": 6, "firstName": "Daniel", "lastName": "Olsen", "email": "daniel.olsen@example.com", "department": "Art", "room": "A121" }
+]

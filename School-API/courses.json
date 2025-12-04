@@ -1,0 +1,8 @@
+[
+    { "id": 1, "code": "MATH101", "name": "Algebra I", "teacherId": 1, "semester": "Fall", "room": "M201", "schedule": "Mon/Wed 09:00-10:00" },
+    { "id": 2, "code": "SCI204", "name": "Biology", "teacherId": 2, "semester": "Fall", "room": "S110", "schedule": "Tue/Thu 10:30-11:30" },
+    { "id": 3, "code": "ENG150", "name": "Literary Analysis", "teacherId": 3, "semester": "Spring", "room": "E305", "schedule": "Mon/Wed 11:00-12:00" },
+    { "id": 4, "code": "HIST220", "name": "World History", "teacherId": 4, "semester": "Spring", "room": "H214", "schedule": "Tue/Thu 09:00-10:00" },
+    { "id": 5, "code": "CS101", "name": "Intro to Programming", "teacherId": 5, "semester": "Fall", "room": "C102", "schedule": "Fri 13:00-15:00" },
+    { "id": 6, "code": "ART130", "name": "Foundations of Art", "teacherId": 6, "semester": "Spring", "room": "A121", "schedule": "Wed 14:00-16:00" }
+]
