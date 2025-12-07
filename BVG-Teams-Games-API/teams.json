@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "name": "BVG Senior Boys Basketball",
-    "shortName": "BVG Sr Boys BB",
+    "name": "BVG Senior Curling",
+    "shortName": "BVG Sr Crl",
     "school": "Bayview Glen",
-    "sport": "Basketball",
-    "level": "Senior Boys"
+    "sport": "Curling",
+    "level": "Senior (DI and DII)"
   },
   {
     "id": 2,

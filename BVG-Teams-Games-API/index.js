@@ -7,8 +7,8 @@ const PORT = 3000;
 
 app.use(express.json());
 
-const TEAMS_FILE = path.join("BVG-Teams-Games-API", "teams.json");
-const GAMES_FILE = path.join("BVG-Teams-Games-API", "games.json");
+const TEAMS_FILE = path.join("", "teams.json");
+const GAMES_FILE = path.join("", "games.json");
 
 function loadJson(filePath) {
   if (!fs.existsSync(filePath)) return [];
@@ -40,6 +40,7 @@ app.listen(PORT, () => {
 
 
 app.get("/teams", (req, res) => {
+  console.log(teams);
   res.json(teams);
 });
 
