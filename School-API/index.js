@@ -27,10 +27,10 @@ const COURSES_FILE = path.join("", "courses.json")
 const STUDENTS_FILE = path.join("", "students.json")
 const TESTS_FILE = path.join("", "tests.json")
 
-let teachers = loadJson(TEAMS_FILE)
-let courses = loadJson(TEAMS_FILE)
-let students = loadJson(TEAMS_FILE)
-let tests = loadJson(TEAMS_FILE)
+let teachers = loadJson(TEACHERS_FILE)
+let courses = loadJson(COURSES_FILE)
+let students = loadJson(STUDENTS_FILE)
+let tests = loadJson(TESTS_FILE)
 
 let nextTeacherId = teachers.reduce((max, t) => Math.max(max, t.id), 0) + 1
 let nextCourseId = courses.reduce((max, c) => Math.max(max, c.id), 0) + 1
@@ -163,7 +163,7 @@ app.put("/courses/:id", (req, res) => {
   if (teacherId !== undefined) {
     let check = teachers.find(t => t.id === Number(teacherId))
     if (!check) 
-      return req.status(400).json({error: "Must provide valid teacherId"})
+      return res.status(400).json({error: "Must provide valid teacherId"})
     course.teacherId = Number(teacherId)
   }
   if (code !== undefined) course.code = code
@@ -316,13 +316,13 @@ app.put("/tests/:id", (req, res) => {
   if (studentId !== undefined) {
     let check = students.find(s => s.id === Number(studentId))
     if (!check) 
-      return req.status(400).json({error: "Must provide valid studentId"})
+      return res.status(400).json({error: "Must provide valid studentId"})
     test.studentId = Number(studentId)
   }
   if (courseId !== undefined) {
     let check = courses.find(c => c.id === Number(courseId))
     if (!check) 
-      return req.status(400).json({error: "Must provide valid courseId"})
+      return res.status(400).json({error: "Must provide valid courseId"})
     test.courseId = Number(courseId)
   }
   if (testName !== undefined) test.testName = testName
