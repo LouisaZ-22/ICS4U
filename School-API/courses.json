@@ -52,5 +52,14 @@
     "semester": "Spring",
     "room": "A121",
     "schedule": "Wed 14:00-16:00"
+  },
+  {
+    "id": 7,
+    "code": "CHEM301",
+    "name": "Chemistry",
+    "teacherId": 2,
+    "semester": "Spring",
+    "room": "S110",
+    "schedule": "to be decided"
   }
 ]

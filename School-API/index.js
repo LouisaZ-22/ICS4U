@@ -114,6 +114,30 @@ app.delete("/teachers/:id", (req, res) => {
 });
 
 
+app.get("/teachers/:id/summary", (req, res) => {
+  const id = Number(req.params.id)
+  const teacher = teachers.find(t => t.id === id)
+  if (!teacher) {
+    return res.status(404).json({error: "Teacher not found"})
+  }
+  const teacherCourses = courses.filter(c => c.teacherId === id)
+  const testCounts = []
+  for (let c of teacherCourses) {
+    const testCount = tests.filter(t => t.courseId === c.id).length
+    testCounts.push({
+      courseId: c.id,
+      code: c.code,
+      testCount
+    })
+  }
+  res.json({
+    teacherId: id,
+    teacherName: teacher.firstName + " " + teacher.lastName,
+    testCounts
+  })
+})
+
+
 
 // courses routes
 app.get("/courses", (req, res) => {
@@ -194,6 +218,35 @@ app.delete("/courses/:id", (req, res) => {
 });
 
 
+app.get("/courses/:id/tests", (req,res) => {
+  const id = Number(req.params.id)
+  const course = courses.find(c => c.id === id)
+  if (!course) {
+    return res.status(404).json({error: "Course not found"})
+  }
+  const courseTests = tests.filter(t => t.courseId === id)
+  res.json(courseTests)
+})
+
+
+app.get("/courses/:id/average", (req,res) => {
+  const id = Number(req.params.id)
+  const course = courses.find(c => c.id === id)
+  if (!course) {
+    return res.status(404).json({error: "Course not found"})
+  }
+  const courseTests = tests.filter(t => t.courseId === id)
+  const testCount = courseTests.length
+  const averagePercent = courseTests.reduce((acc, t) => acc + (t.mark/t.outOf * 100), 0) / testCount
+  res.json({
+    courseId: id,
+    testCount,
+    averagePercent
+  })
+})
+
+
+
 // students routes
 app.get("/students", (req, res) => {
   res.json(students)
@@ -264,6 +317,34 @@ app.delete("/students/:id", (req, res) => {
   saveJson(STUDENTS_FILE, students)
   res.json(deleted)
 });
+
+
+app.get("/students/:id/tests", (req, res) => {
+  const id = Number(req.params.id)
+  const student = students.find(s => s.id === id)
+  if (!student) {
+    return res.status(404).json({error: "Student not found"})
+  }
+  const studentTests = tests.filter(t => t.studentId === id)
+  res.json(studentTests)
+}) 
+
+
+app.get("/students/:id/average", (req,res) => {
+  const id = Number(req.params.id)
+  const student = students.find(s => s.id === id)
+  if (!student) {
+    return res.status(404).json({error: "Student not found"})
+  }
+  const studentTests = tests.filter(t => t.studentId === id)
+  const testCount = studentTests.length
+  const averagePercent = studentTests.reduce((acc, t) => acc + (t.mark/t.outOf * 100), 0) / testCount
+  res.json({
+    studentId: id,
+    testCount,
+    averagePercent
+  })
+})
 
 
 
