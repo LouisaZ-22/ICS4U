@@ -11,11 +11,12 @@ app.use(express.json())
 const client = new MongoClient(process.env.MONGO_URI);
 
 let db;
-connectDB = async () => {
+async function connectDB() {
   await client.connect();
   db = client.db(process.env.MONGO_DB_NAME);
   console.log("MongoDB connected");
 };
+connectDB()
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`)
