@@ -1,41 +1,21 @@
 import express from 'express'
-import fs from 'fs'
-import path from 'path'
+import {MongoClient} from "mongodb";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express()
 const PORT = 3000
-
 app.use(express.json())
 
-function loadJson(filePath) {
-  if (!fs.existsSync(filePath)) return []
-  const data = fs.readFileSync(filePath, "utf-8")
-  try {
-    return JSON.parse(data);
-  } catch (err) {
-    console.error("Error parsing", filePath, err)
-    return [];
-  }
-}
+const client = new MongoClient(process.env.MONGO_URI);
 
-function saveJson(filePath, data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2))
-}
-
-const TEACHERS_FILE = path.join("", "teachers.json")
-const COURSES_FILE = path.join("", "courses.json")
-const STUDENTS_FILE = path.join("", "students.json")
-const TESTS_FILE = path.join("", "tests.json")
-
-let teachers = loadJson(TEACHERS_FILE)
-let courses = loadJson(COURSES_FILE)
-let students = loadJson(STUDENTS_FILE)
-let tests = loadJson(TESTS_FILE)
-
-let nextTeacherId = teachers.reduce((max, t) => Math.max(max, t.id), 0) + 1
-let nextCourseId = courses.reduce((max, c) => Math.max(max, c.id), 0) + 1
-let nextStudentId = students.reduce((max, s) => Math.max(max, s.id), 0) + 1
-let nextTestId = tests.reduce((max, t) => Math.max(max, t.id), 0) + 1
+let db;
+connectDB = async () => {
+  await client.connect();
+  db = client.db("School-API");
+  console.log("MongoDB connected");
+};
 
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`)
@@ -43,7 +23,8 @@ app.listen(PORT, () => {
 
 
 // teachers routes
-app.get("/teachers", (req, res) => {
+app.get("/teachers", async (req, res) => {
+  const teachers = await db.collection("teachers").find().toArray()
   res.json(teachers)
 });
 
@@ -57,22 +38,21 @@ app.get("/teachers/:id", (req, res) => {
 });
 
 
-app.post("/teachers", (req, res) => {
+app.post("/teachers", async (req, res) => {
   const {firstName, lastName, email, department, room} = req.body
   if (!firstName || !lastName || !email || !department) {
     return res.status(400).json({ error: "Missing required fields" })
   }
   const newTeacher = {
-    id: nextTeacherId++,
+    // id: nextTeacherId++, (DELETE?)
     firstName,
     lastName,
     email,
     department,
     room: room || "none"
   };
-  teachers.push(newTeacher)
-  saveJson(TEACHERS_FILE, teachers)
-  res.status(201).json(newTeacher)
+  await db.collection("teachers").insertOne(newTeacher);
+  res.status(201).json(newTeacher);
 });
 
 
@@ -140,7 +120,8 @@ app.get("/teachers/:id/summary", (req, res) => {
 
 
 // courses routes
-app.get("/courses", (req, res) => {
+app.get("/courses", async (req, res) => {
+  const courses = await db.collection("courses").find().toArray()
   res.json(courses)
 });
 
@@ -248,7 +229,8 @@ app.get("/courses/:id/average", (req,res) => {
 
 
 // students routes
-app.get("/students", (req, res) => {
+app.get("/students", async (req, res) => {
+  const students = await db.collection("students").find().toArray()
   res.json(students)
 })
 
@@ -262,21 +244,20 @@ app.get("/students/:id", (req, res) => {
 });
 
 
-app.post("/students", (req, res) => {
+app.post("/students", async (req, res) => {
   const {firstName, lastName, grade, studentNumber, homeroom} = req.body
   if (!firstName || !lastName || !grade || !studentNumber) {
     return res.status(400).json({error: "Missing required fields"})
   }
   const newStudent = {
-    id: nextStudentId++,
+    // id: nextStudentId++,
     firstName,
     lastName,
     grade,
     studentNumber,
     homeroom: homeroom || "to be decided"
   }
-  students.push(newStudent)
-  saveJson(STUDENTS_FILE, students)
+  await db.collection("students").insertOne(newStudent);
   res.status(201).json(newStudent)
 })
 
@@ -349,7 +330,8 @@ app.get("/students/:id/average", (req,res) => {
 
 
 // tests routes
-app.get("/tests", (req, res) => {
+app.get("/tests", async (req, res) => {
+  const tests = await db.collection("tests").find().toArray()
   res.json(tests);
 });
 
