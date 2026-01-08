@@ -202,7 +202,7 @@ app.post("/courses", async (req, res) => {
 
 
 
-aapp.put("/courses/:id", async (req, res) => {
+app.put("/courses/:id", async (req, res) => {
   if (Object.keys(req.body).length === 0) {
     return res.status(400).json({ error: "No fields provided to update" });
   }
