@@ -23,6 +23,7 @@ app.listen(PORT, () => {
 });
 
 
+
 // teachers routes
 app.get("/teachers", async (req, res) => {
   const teachers = await db.collection("teachers").find().toArray()
