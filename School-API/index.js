@@ -220,7 +220,7 @@ app.put("/courses/:id", async (req, res) => {
     }
     await db.collection("courses").updateOne(
       { _id: courseId },
-      { $set: updates }
+      { $set: req.body }
     );
     const updatedCourse = await db.collection("courses").findOne({ _id: courseId });
     return res.json(updatedCourse);
@@ -360,7 +360,7 @@ app.put("/students/:id", async (req, res) => {
     }
     await db.collection("students").updateOne(
       { _id: studentId },
-      { $set: updates }
+      { $set: req.body }
     );
     const updatedStudent = await db.collection("students").findOne({ _id: studentId });
     return res.json(updatedStudent);
@@ -533,7 +533,7 @@ app.put("/tests/:id", async (req, res) => {
     }
     await db.collection("tests").updateOne(
       { _id: testId },
-      { $set: updates }
+      { $set: req.body }
     );
     const updatedTest = await db.collection("tests").findOne({ _id: testId });
     return res.json(updatedTest);
