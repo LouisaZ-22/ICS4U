@@ -66,15 +66,17 @@ app.put("/teachers/:id", async (req, res) => {
     return res.status(400).json({ error: "No fields provided to update" });
   }
   try {
-    const result = await db.collection("teachers").findOneAndUpdate(
-      { _id: new ObjectId(req.params.id) },
-      { $set: updates },
-      { returnOriginal: false }
-    );
-    if (!result.value) {
+    const teacherId = new ObjectId(req.params.id);
+    const teacher = await db.collection("teachers").findOne({ _id: teacherId });
+    if (!teacher) {
       return res.status(404).json({ error: "Teacher not found" });
     }
-    res.json(result.value);
+    await db.collection("teachers").updateOne(
+      { _id: teacherId },
+      { $set: updates }
+    );
+    const updatedTeacher = await db.collection("teachers").findOne({ _id: teacherId });
+    return res.json(updatedTeacher);
   } catch {
     res.status(400).json({ error: "Invalid teacher id" });
   }
@@ -236,24 +238,20 @@ app.put("/courses/:id", async (req, res) => {
 app.delete("/courses/:id", async (req, res) => {
   try {
     const courseId = new ObjectId(req.params.id);
-
-    const hasTests = await db.collection("tests")
-      .findOne({ courseId });
+    const hasTests = await db.collection("tests").findOne({ courseId });
 
     if (hasTests) {
       return res.status(400).json({
         error: "Cannot delete a course when tests from course exist"
       });
     }
-
-    const result = await db.collection("courses")
-      .findOneAndDelete({ _id: courseId });
-
-    if (!result.value) {
+    const course = await db.collection("courses").findOne({ _id: courseId });
+    if (!course) {
       return res.status(404).json({ error: "Course not found" });
     }
-
-    res.json(result.value);
+    await db.collection("courses").deleteOne({ _id: courseId });
+    res.json(course);
+    
   } catch {
     res.status(400).json({ error: "Invalid course id" });
   }
