@@ -66,9 +66,10 @@ app.put("/teachers/:id", async (req, res) => {
   if (Object.keys(updates).length === 0) {
     return res.status(400).json({ error: "No fields provided to update" });
   }
+  const teacherId = new ObjectId(req.params.id)
   try {
     const result = await db.collection("teachers").findOneAndUpdate(
-      { _id: new ObjectId(req.params.id) },
+      { _id: teacherId },
       { $set: updates },
       { returnDocument: "after" }
     );
@@ -207,12 +208,6 @@ app.put("/courses/:id", async (req, res) => {
   if (Object.keys(req.body).length === 0) {
     return res.status(400).json({ error: "No fields provided to update" });
   }
-
-  console.log("DB:", db.databaseName);
-    console.log("Collection:", "teachers");
-    console.log("ID param:", req.params.id);
-    console.log("ObjectId:", new ObjectId(req.params.id));
-
   try {
     if (req.body.teacherId) {
       const teacherExists = await db.collection("teachers")
@@ -228,8 +223,6 @@ app.put("/courses/:id", async (req, res) => {
       { $set: req.body },
       { returnDocument: "after" }
     );
-
-    console.log(result.value)
     if (!result.value) {
       return res.status(404).json({ error: "Course not found" });
     }
