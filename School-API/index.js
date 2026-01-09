@@ -48,7 +48,6 @@ app.post("/teachers", async (req, res) => {
     return res.status(400).json({ error: "Missing required fields" })
   }
   const newTeacher = {
-    // id: nextTeacherId++, (DELETE?)
     firstName,
     lastName,
     email,
@@ -66,12 +65,11 @@ app.put("/teachers/:id", async (req, res) => {
   if (Object.keys(updates).length === 0) {
     return res.status(400).json({ error: "No fields provided to update" });
   }
-  const teacherId = new ObjectId(req.params.id)
   try {
     const result = await db.collection("teachers").findOneAndUpdate(
-      { _id: teacherId },
+      { _id: new ObjectId(req.params.id) },
       { $set: updates },
-      { returnDocument: "after" }
+      { returnOriginal: false }
     );
     if (!result.value) {
       return res.status(404).json({ error: "Teacher not found" });
