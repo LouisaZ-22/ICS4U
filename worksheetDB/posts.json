@@ -1,0 +1,112 @@
+[
+  {
+    "postId": "p2001",
+    "authorId": "u1001",
+    "title": "Getting started with MongoDB Atlas",
+    "status": "published",
+    "tags": ["mongodb", "atlas", "node"],
+    "views": 940,
+    "createdAt": "2025-10-02T15:00:00Z",
+    "editedAt": "2025-10-03T09:10:00Z"
+  },
+  {
+    "postId": "p2002",
+    "authorId": "u1004",
+    "title": "VS Code MongoDB Playground tips",
+    "status": "published",
+    "tags": ["mongodb", "vscode", "tools"],
+    "views": 620,
+    "createdAt": "2025-10-10T18:20:00Z"
+  },
+  {
+    "postId": "p2003",
+    "authorId": "u1003",
+    "title": "Python vs JavaScript for beginners",
+    "status": "draft",
+    "tags": ["python", "javascript"],
+    "views": 120,
+    "createdAt": "2025-10-20T10:00:00Z"
+  },
+  {
+    "postId": "p2004",
+    "authorId": "u1007",
+    "title": "Designing clean JSON schemas",
+    "status": "published",
+    "tags": ["design", "json"],
+    "views": 310,
+    "createdAt": "2025-11-13T12:05:00Z"
+  },
+  {
+    "postId": "p2005",
+    "authorId": "u1006",
+    "title": "Node find() patterns you should know",
+    "status": "published",
+    "tags": ["node", "mongodb"],
+    "views": 780,
+    "createdAt": "2025-11-04T09:30:00Z"
+  },
+  {
+    "postId": "p2006",
+    "authorId": "u1010",
+    "title": "Mongo queries without aggregations",
+    "status": "published",
+    "tags": ["mongodb", "querying"],
+    "views": 455,
+    "createdAt": "2025-12-06T16:40:00Z"
+  },
+  {
+    "postId": "p2007",
+    "authorId": "u1008",
+    "title": "Sorting and projection: make results readable",
+    "status": "published",
+    "tags": ["mongodb", "basics"],
+    "views": 260,
+    "createdAt": "2025-11-21T08:00:00Z"
+  },
+  {
+    "postId": "p2008",
+    "authorId": "u1009",
+    "title": "MongoDB indexes (preview)",
+    "status": "draft",
+    "tags": ["mongodb", "performance"],
+    "views": 90,
+    "createdAt": "2025-12-02T12:30:00Z"
+  },
+  {
+    "postId": "p2009",
+    "authorId": "u1001",
+    "title": "MongoDB: nested fields and arrays",
+    "status": "published",
+    "tags": ["mongodb", "arrays", "nested"],
+    "views": 505,
+    "createdAt": "2025-11-08T20:15:00Z"
+  },
+  {
+    "postId": "p2010",
+    "authorId": "u1005",
+    "title": "React UI for a simple posts app",
+    "status": "published",
+    "tags": ["react", "javascript"],
+    "views": 395,
+    "createdAt": "2025-10-25T11:11:00Z",
+    "editedAt": "2025-10-26T09:00:00Z"
+  },
+  {
+    "postId": "p2011",
+    "authorId": "u1004",
+    "title": "Mongo find() operator drills",
+    "status": "published",
+    "tags": ["mongodb", "practice"],
+    "views": 840,
+    "createdAt": "2025-12-10T14:25:00Z"
+  },
+  {
+    "postId": "p2012",
+    "authorId": "u1007",
+    "title": "Regex searching safely",
+    "status": "published",
+    "tags": ["mongodb", "regex"],
+    "views": 275,
+    "createdAt": "2025-12-11T09:45:00Z"
+  }
+]

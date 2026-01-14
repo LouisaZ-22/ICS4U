@@ -1,0 +1,117 @@
+[
+  {
+    "userId": "u1001",
+    "name": "Kevin DesLauriers",
+    "role": "teacher",
+    "email": "kevin@example.com",
+    "github": "kdeslauriers",
+    "address": { "city": "Toronto", "province": "ON" },
+    "skills": ["javascript", "node", "mongodb", "teaching"],
+    "stats": { "followers": 410, "following": 120 },
+    "badges": [{ "type": "honour", "level": 3 }, { "type": "helper", "level": 2 }],
+    "createdAt": "2025-09-02T10:15:00Z"
+  },
+  {
+    "userId": "u1002",
+    "name": "Tracy DesLauriers",
+    "role": "parent",
+    "email": "tracy@example.com",
+    "address": { "city": "Whitby", "province": "ON" },
+    "skills": ["fitness", "planning"],
+    "stats": { "followers": 280, "following": 95 },
+    "badges": [{ "type": "helper", "level": 1 }],
+    "createdAt": "2025-09-05T14:03:00Z"
+  },
+  {
+    "userId": "u1003",
+    "name": "Amina Khan",
+    "role": "student",
+    "email": "amina@example.com",
+    "github": "aminak-dev",
+    "address": { "city": "Toronto", "province": "ON" },
+    "skills": ["python", "javascript"],
+    "stats": { "followers": 190, "following": 220 },
+    "badges": [{ "type": "honour", "level": 1 }],
+    "createdAt": "2025-10-01T09:00:00Z"
+  },
+  {
+    "userId": "u1004",
+    "name": "Vinayak Rao",
+    "role": "student",
+    "email": "vinayak@example.com",
+    "github": "vinayak-rao",
+    "address": { "city": "Ajax", "province": "ON" },
+    "skills": ["java", "node", "mongodb"],
+    "stats": { "followers": 320, "following": 180 },
+    "badges": [{ "type": "honour", "level": 2 }, { "type": "builder", "level": 2 }],
+    "createdAt": "2025-10-09T16:40:00Z"
+  },
+  {
+    "userId": "u1005",
+    "name": "Sofia Chen",
+    "role": "student",
+    "email": "sofia@example.com",
+    "address": { "city": "Markham", "province": "ON" },
+    "skills": ["javascript", "react"],
+    "stats": { "followers": 85, "following": 140 },
+    "badges": [],
+    "createdAt": "2025-10-18T11:22:00Z"
+  },
+  {
+    "userId": "u1006",
+    "name": "Noah Patel",
+    "role": "student",
+    "email": "noah@example.com",
+    "github": "noahp",
+    "address": { "city": "Scarborough", "province": "ON" },
+    "skills": ["node", "mongodb", "testing"],
+    "stats": { "followers": 210, "following": 160 },
+    "badges": [{ "type": "builder", "level": 1 }],
+    "createdAt": "2025-11-03T08:10:00Z"
+  },
+  {
+    "userId": "u1007",
+    "name": "Maya Singh",
+    "role": "student",
+    "email": "maya@example.com",
+    "address": { "city": "Toronto", "province": "ON" },
+    "skills": ["design", "ux", "javascript"],
+    "stats": { "followers": 305, "following": 260 },
+    "badges": [{ "type": "helper", "level": 2 }],
+    "createdAt": "2025-11-12T13:55:00Z"
+  },
+  {
+    "userId": "u1008",
+    "name": "Ethan Brown",
+    "role": "student",
+    "email": "ethan@example.com",
+    "address": { "city": "Oshawa", "province": "ON" },
+    "skills": ["python", "data"],
+    "stats": { "followers": 60, "following": 75 },
+    "badges": [{ "type": "honour", "level": 1 }],
+    "createdAt": "2025-11-20T19:30:00Z"
+  },
+  {
+    "userId": "u1009",
+    "name": "Olivia Martin",
+    "role": "teacher",
+    "email": "olivia@example.com",
+    "github": "omartin",
+    "address": { "city": "Pickering", "province": "ON" },
+    "skills": ["mongodb", "sql", "teaching"],
+    "stats": { "followers": 520, "following": 140 },
+    "badges": [{ "type": "honour", "level": 3 }],
+    "createdAt": "2025-12-01T12:00:00Z"
+  },
+  {
+    "userId": "u1010",
+    "name": "Liam Wilson",
+    "role": "student",
+    "email": "liam@example.com",
+    "address": { "city": "Toronto", "province": "ON" },
+    "skills": ["node", "express", "mongodb"],
+    "stats": { "followers": 260, "following": 240 },
+    "badges": [{ "type": "builder", "level": 2 }],
+    "createdAt": "2025-12-05T07:45:00Z"
+  }
+]

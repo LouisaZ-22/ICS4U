@@ -1,0 +1,152 @@
+[
+  {
+    "commentId": "c3001",
+    "postId": "p2001",
+    "authorId": "u1004",
+    "text": "This helped me set up Atlas quickly.",
+    "likeCount": 6,
+    "isFlagged": false,
+    "mentions": ["u1001"],
+    "createdAt": "2025-10-02T16:10:00Z"
+  },
+  {
+    "commentId": "c3002",
+    "postId": "p2001",
+    "authorId": "u1003",
+    "text": "Can you add a section on projection?",
+    "likeCount": 3,
+    "isFlagged": false,
+    "mentions": ["u1001"],
+    "createdAt": "2025-10-02T17:05:00Z"
+  },
+  {
+    "commentId": "c3003",
+    "postId": "p2002",
+    "authorId": "u1006",
+    "text": "Playgrounds are underrated.",
+    "likeCount": 5,
+    "isFlagged": false,
+    "mentions": ["u1004"],
+    "createdAt": "2025-10-10T18:40:00Z"
+  },
+  {
+    "commentId": "c3004",
+    "postId": "p2005",
+    "authorId": "u1010",
+    "text": "The examples using $in and $gt were solid.",
+    "likeCount": 4,
+    "isFlagged": false,
+    "mentions": [],
+    "createdAt": "2025-11-04T10:10:00Z"
+  },
+  {
+    "commentId": "c3005",
+    "postId": "p2005",
+    "authorId": "u1002",
+    "text": "One of the best posts in the unit.",
+    "likeCount": 2,
+    "isFlagged": false,
+    "mentions": ["u1006"],
+    "createdAt": "2025-11-04T11:00:00Z"
+  },
+  {
+    "commentId": "c3006",
+    "postId": "p2006",
+    "authorId": "u1007",
+    "text": "No aggregations? This is perfect for our class.",
+    "likeCount": 7,
+    "isFlagged": false,
+    "mentions": ["u1010"],
+    "createdAt": "2025-12-06T17:10:00Z"
+  },
+  {
+    "commentId": "c3007",
+    "postId": "p2006",
+    "authorId": "u1008",
+    "text": "I still want to learn lookup later though.",
+    "likeCount": 1,
+    "isFlagged": false,
+    "mentions": ["u1010"],
+    "createdAt": "2025-12-06T17:35:00Z"
+  },
+  {
+    "commentId": "c3008",
+    "postId": "p2009",
+    "authorId": "u1005",
+    "text": "Arrays finally make sense now.",
+    "likeCount": 4,
+    "isFlagged": false,
+    "mentions": ["u1001"],
+    "createdAt": "2025-11-08T21:00:00Z"
+  },
+  {
+    "commentId": "c3009",
+    "postId": "p2012",
+    "authorId": "u1004",
+    "text": "Regex can get risky if you overdo it.",
+    "likeCount": 3,
+    "isFlagged": false,
+    "mentions": [],
+    "createdAt": "2025-12-11T10:20:00Z"
+  },
+  {
+    "commentId": "c3010",
+    "postId": "p2011",
+    "authorId": "u1003",
+    "text": "The drills were hard but fair.",
+    "likeCount": 5,
+    "isFlagged": false,
+    "mentions": ["u1004"],
+    "createdAt": "2025-12-10T15:05:00Z"
+  },
+  {
+    "commentId": "c3011",
+    "postId": "p2011",
+    "authorId": "u1008",
+    "text": "I kept mixing up $and and $or at first.",
+    "likeCount": 2,
+    "isFlagged": false,
+    "mentions": [],
+    "createdAt": "2025-12-10T16:02:00Z"
+  },
+  {
+    "commentId": "c3012",
+    "postId": "p2002",
+    "authorId": "u1007",
+    "text": "This extension should be required.",
+    "likeCount": 8,
+    "isFlagged": false,
+    "mentions": [],
+    "createdAt": "2025-10-10T19:10:00Z"
+  },
+  {
+    "commentId": "c3013",
+    "postId": "p2004",
+    "authorId": "u1010",
+    "text": "Schema clarity saves time later.",
+    "likeCount": 4,
+    "isFlagged": false,
+    "mentions": ["u1007"],
+    "createdAt": "2025-11-13T13:00:00Z"
+  },
+  {
+    "commentId": "c3014",
+    "postId": "p2006",
+    "authorId": "u1006",
+    "text": "Someone in the thread was rude.",
+    "likeCount": 0,
+    "isFlagged": true,
+    "mentions": [],
+    "createdAt": "2025-12-06T18:00:00Z"
+  },
+  {
+    "commentId": "c3015",
+    "postId": "p2001",
+    "authorId": "u1010",
+    "text": "If you import JSON as an array it works best.",
+    "likeCount": 2,
+    "isFlagged": false,
+    "mentions": ["u1001"],
+    "createdAt": "2025-10-02T18:30:00Z"
+  }
+]
