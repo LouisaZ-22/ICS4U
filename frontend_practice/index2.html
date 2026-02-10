@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DOM Practice Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.4;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      padding: 16px;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+    .row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .box {
+      flex: 1;
+      min-width: 220px;
+      border: 1px solid #ccc;
+      padding: 12px;
+      border-radius: 10px;
+      background: white;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #bbb;
+      font-size: 12px;
+      margin-left: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background: #f0f0f0;
+    }
+    .hint {
+      color: #444;
+      font-size: 14px;
+      margin-top: 8px;
+    }
+    .muted {
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="page">
+    <h1 id="title">DOM Practice Page <span class="badge" id="statusBadge">READY</span></h1>
+    <p id="intro">
+      This page is designed for simple DOM manipulation practice:
+      add elements, change text, edit attributes, toggle classes, and update a table.
+    </p>
+    <div class="row" id="topRow">
+      <div class="box" id="boxA">
+        <h2>Box A</h2>
+        <p class="muted" id="boxAText">Click a button (later) or run JS in the console to change me.</p>
+        <p class="hint">Try: change my textContent, add a class, or append a new element.</p>
+      </div>
+      <div class="box" id="boxB">
+        <h2>Box B</h2>
+        <p class="muted" id="boxBText">I have an attribute you can change.</p>
+        <a id="link" href="https://example.com" target="_blank">Example link</a>
+        <p class="hint">Try: change the link href, text, or target attribute.</p>
+      </div>
+    </div>
+    <div class="box" id="tableBox">
+      <h2>Sample Table</h2>
+      <p class="muted" id="tableNote">You can add rows, remove rows, or edit cell text.</p>
+      <table id="studentTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Grade</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <tr class="dataRow">
+            <td>Alex</td>
+            <td>10</td>
+            <td>Active</td>
+          </tr>
+          <tr class="dataRow">
+            <td>Sam</td>
+            <td>11</td>
+            <td>Active</td>
+          </tr>
+          <tr class="dataRow">
+            <td>Jordan</td>
+            <td>12</td>
+            <td>Inactive</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="hint">Try: document.querySelectorAll(".dataRow") and loop to update a column.</p>
+    </div>
+    <div class="box" id="footerBox" style="margin-top: 12px;">
+      <h2>Footer Area</h2>
+      <p id="footerText">You can add a new paragraph below this one using append/prepend.</p>
+      <p class="muted" id="timestamp" data-created="2026-01-28">Created: <strong>2026-01-28</strong></p>
+    </div>
+  </div>
+</body>
+</html>

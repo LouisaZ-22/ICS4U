@@ -1,0 +1,28 @@
+th {
+    border: 1px black solid;
+    width: 200px
+}
+td {
+    border: 1px solid yellow
+}
+p {
+    background-color: #E7E2
+}
+p#lightblue {
+    background-color: lightblue
+}
+ol {
+    background-color: #E2E2E2
+}
+#biteme {
+    background-color: blueviolet
+}
+#smaller {
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+    border: 3px dashed green
+}
+.rounded {
+    border-radius: 20px
+}
