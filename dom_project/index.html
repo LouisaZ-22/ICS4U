@@ -27,7 +27,7 @@
         - Set action to your backend endpoint (e.g., /add-user)
         - Use method="post" to send form data
       -->
-      <form action="/add-user" method="post" autocomplete="on">
+      <form id="form" action="/add-user" method="post" autocomplete="on">
         <fieldset>
           <legend>Identity</legend>
           <div class="grid">
@@ -111,34 +111,7 @@
               <th>Password</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Jordan Lee</td>
-              <td>(416) 555-0188</td>
-              <td>22 Queen St W, Toronto, ON</td>
-              <td><span class="pill">Non-binary</span></td>
-              <td>29</td>
-              <td>jlee29</td>
-              <td><span class="pill ok">••••••••</span></td>
-            </tr>
-            <tr>
-              <td>Amara Singh</td>
-              <td>(647) 555-0134</td>
-              <td>101 Bloor St E, Toronto, ON</td>
-              <td><span class="pill">Female</span></td>
-              <td>34</td>
-              <td>amara.s</td>
-              <td><span class="pill ok">••••••••</span></td>
-            </tr>
-            <tr>
-              <td>Chris Nguyen</td>
-              <td>(905) 555-0109</td>
-              <td>8 Bayview Ave, Toronto, ON</td>
-              <td><span class="pill">Male</span></td>
-              <td>41</td>
-              <td>cnguyen</td>
-              <td><span class="pill ok">••••••••</span></td>
-            </tr>
+          <tbody id="tb">
           </tbody>
         </table>
       </div>
@@ -150,5 +123,61 @@
   <footer>
     HTML + CSS only. If you want this to actually “add to the table” without JS, you need a server to handle the POST.
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loadUsers();
+    });
+
+    async function loadUsers() {
+      try {
+        const res = await fetch("/getUsers")
+        if (!res.ok) throw new Error ("what message? server error?")
+
+        const userRecords = await res.json()
+
+        for (u of userRecords) {
+          const tr = document.createElement("tr")
+          tr.innerHTML = `
+            <td>${u.name}</td>
+            <td>${u.phone}</td>
+            <td>${u.address}</td>
+            <td>${u.gender}</td>
+            <td>${u.age}</td>
+            <td>${u.username}</td>
+            <td>${u.password}</td>
+          `;
+          document.getElementById("tb").appendchild(tr)
+        }
+      }
+      catch(err) {
+        console.error(err)
+      }     
+    }
+
+    document.getElementById("form").addEventListener("submit", async function(event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+
+      const newUser = {
+        name: formData.get("name"),
+        phone: formData.get("phone"),
+        address: formData.get("address"),
+        gender: formData.get("gender"),
+        age: formData.get("age"),
+        username: formData.get("username"),
+        password: formData.get("password"),
+      }
+      try {
+        await fetch("/addUser", {
+          method: "post",
+          body: newUser
+        })
+      }
+      catch(err) {
+        console.error(err)
+      }
+    });
+  </script>
 </body>
 </html>
