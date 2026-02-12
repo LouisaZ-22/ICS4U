@@ -27,7 +27,7 @@
         - Set action to your backend endpoint (e.g., /add-user)
         - Use method="post" to send form data
       -->
-      <form id="form" action="/add-user" method="post" autocomplete="on">
+      <form id="form" action="/api/users" method="post" autocomplete="on">
         <fieldset>
           <legend>Identity</legend>
           <div class="grid">
@@ -131,24 +131,26 @@
 
     async function loadUsers() {
       try {
-        const res = await fetch("/api/users")
-        if (!res.ok) throw new Error ("what message? server error?")
+        const res = await fetch("https://user-records-form.onrender.com/api/users")
+        if (!res.ok) throw new Error (`Error ${res.status}`)
 
         const userRecords = await res.json()
+        const tbody = document.querySelector("#tb")
 
-        for (u of userRecords) {
-          const tr = document.createElement("tr")
-          tr.innerHTML = `
-            <td>${u.name}</td>
-            <td>${u.phone}</td>
-            <td>${u.address}</td>
-            <td>${u.gender}</td>
-            <td>${u.age}</td>
-            <td>${u.username}</td>
-            <td>${u.password}</td>
-          `;
-          document.getElementById("tb").appendchild(tr)
-        }
+        const rowsHtml = userRecords.map(u => {
+          document.createElement (`
+            <tr>
+              <td>${u.name}</td>
+              <td>${u.phone}</td>
+              <td>${u.address}</td>
+              <td>${u.gender}</td>
+              <td>${u.age}</td>
+              <td>${u.username}</td>
+              <td>${u.password}</td>
+            <tr>
+          `)
+        })
+        tbody.appendChild(rowsHtml)
       }
       catch(err) {
         console.error(err)
@@ -156,20 +158,39 @@
     }
 
     document.getElementById("form").addEventListener("submit", async function(event) {
-      event.preventDefault();
-      const formData = new FormData(this);
-
-      const newUser = {
-        name: formData.get("name"),
-        phone: formData.get("phone"),
-        address: formData.get("address"),
-        gender: formData.get("gender"),
-        age: formData.get("age"),
-        username: formData.get("username"),
-        password: formData.get("password"),
-      }
       try {
-        await fetch("/api/users", { method: "POST", body: newUser })
+        event.preventDefault();
+        const formData = new FormData(this);
+
+        const newUser = {
+          name: formData.get("name"),
+          phone: formData.get("phone"),
+          address: formData.get("address"),
+          gender: formData.get("gender"),
+          age: formData.get("age"),
+          username: formData.get("username"),
+          password: formData.get("password"),
+        }
+        await fetch("https://user-records-form.onrender.com/api/users", {
+          method: "POST", 
+          headers: { "Content-Type": "application/json" },
+          body: newUser
+        })
+
+        if (!res.ok) throw new Error (`Error ${res.status}`)
+
+        const newRow = document.createElement(`
+          <tr>
+            <td>${newUser.name}</td>
+            <td>${newUser.phone}</td>
+            <td>${newUser.address}</td>
+            <td>${newUser.gender}</td>
+            <td>${newUser.age}</td>
+            <td>${newUser.username}</td>
+            <td>${newUser.password}</td>
+          <tr>
+        `)
+        document.querySelector("#tb").appendChild(newRow)
       }
       catch(err) {
         console.error(err)
