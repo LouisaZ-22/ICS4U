@@ -138,17 +138,16 @@
         const tbody = document.querySelector("#tb")
 
         const rowsHtml = userRecords.map(u => {
-          document.createElement (`
-            <tr>
-              <td>${u.name}</td>
-              <td>${u.phone}</td>
-              <td>${u.address}</td>
-              <td>${u.gender}</td>
-              <td>${u.age}</td>
-              <td>${u.username}</td>
-              <td>${u.password}</td>
-            <tr>
-          `)
+          const tr = document.createElement("tr")
+          tr.innerHTML = `
+            <td>${u.name}</td>
+            <td>${u.phone}</td>
+            <td>${u.address}</td>
+            <td>${u.gender}</td>
+            <td>${u.age}</td>
+            <td>${u.username}</td>
+            <td><span class="pill ok">••••••••</span></td>
+          `;
         })
         tbody.appendChild(rowsHtml)
       }
@@ -179,17 +178,16 @@
 
         if (!res.ok) throw new Error (`Error ${res.status}`)
 
-        const newRow = document.createElement(`
-          <tr>
-            <td>${newUser.name}</td>
-            <td>${newUser.phone}</td>
-            <td>${newUser.address}</td>
-            <td>${newUser.gender}</td>
-            <td>${newUser.age}</td>
-            <td>${newUser.username}</td>
-            <td>${newUser.password}</td>
-          <tr>
-        `)
+        const tr = document.createElement("tr")
+        tr.innerHTML = `
+          <td>${u.name}</td>
+          <td>${u.phone}</td>
+          <td>${u.address}</td>
+          <td>${u.gender}</td>
+          <td>${u.age}</td>
+          <td>${u.username}</td>
+          <td><span class="pill ok">••••••••</span></td>
+        `;
         document.querySelector("#tb").appendChild(newRow)
       }
       catch(err) {
