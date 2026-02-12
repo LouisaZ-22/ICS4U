@@ -131,7 +131,7 @@
 
     async function loadUsers() {
       try {
-        const res = await fetch("/getUsers")
+        const res = await fetch("/api/users")
         if (!res.ok) throw new Error ("what message? server error?")
 
         const userRecords = await res.json()
@@ -152,7 +152,7 @@
       }
       catch(err) {
         console.error(err)
-      }     
+      }
     }
 
     document.getElementById("form").addEventListener("submit", async function(event) {
@@ -169,10 +169,7 @@
         password: formData.get("password"),
       }
       try {
-        await fetch("/addUser", {
-          method: "post",
-          body: newUser
-        })
+        await fetch("/api/users", { method: "POST", body: newUser })
       }
       catch(err) {
         console.error(err)

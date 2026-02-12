@@ -2,14 +2,14 @@ import express from "express";
 import "dotenv/config";
 import { connectToMongo } from "./db.js";
 
-import usersRoutes from "./userRoutes.js";
+import usersRoutes from "./user/routes.js";
 import { errorHandler } from "./handlers.js";
 
 
 const app = express();
 app.use(express.json());
 
-app.use("/api/users", usersRoutes); //change?
+app.use("/api/users", usersRoutes);
 app.use(errorHandler);
 
 
