@@ -173,7 +173,7 @@
         await fetch("https://user-records-form.onrender.com/api/users", {
           method: "POST", 
           headers: { "Content-Type": "application/json" },
-          body: newUser
+          body: JSON.stringify(newUser)
         })
 
         if (!res.ok) throw new Error (`Error ${res.status}`)
