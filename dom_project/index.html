@@ -177,14 +177,14 @@
           body: JSON.stringify(newUser)
         })
 
-        const tr = document.createElement("tr")
+        const newRow = document.createElement("tr")
         tr.innerHTML = `
-          <td>${u.name}</td>
-          <td>${u.phone}</td>
-          <td>${u.address}</td>
-          <td>${u.gender}</td>
-          <td>${u.age}</td>
-          <td>${u.username}</td>
+          <td>${newUser.name}</td>
+          <td>${newUser.phone}</td>
+          <td>${newUser.address}</td>
+          <td>${newUser.gender}</td>
+          <td>${newUser.age}</td>
+          <td>${newUser.username}</td>
           <td><span class="pill ok">••••••••</span></td>
         `;
         document.querySelector("#tb").appendChild(newRow)
