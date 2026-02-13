@@ -137,8 +137,8 @@
         const userRecords = await res.json()
         const tbody = document.querySelector("#tb")
 
-        const rowsHtml = userRecords.map(u => {
-          const tr = document.createElement("tr")
+        userRecords.forEach(u => {
+          const tr = document.createElement("tr");
           tr.innerHTML = `
             <td>${u.name}</td>
             <td>${u.phone}</td>
@@ -148,8 +148,9 @@
             <td>${u.username}</td>
             <td><span class="pill ok">••••••••</span></td>
           `;
-        })
-        tbody.appendChild(rowsHtml)
+          tbody.appendChild(tr);
+        });
+
       }
       catch(err) {
         console.error(err)
@@ -175,8 +176,6 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(newUser)
         })
-
-        if (!res.ok) throw new Error (`Error ${res.status}`)
 
         const tr = document.createElement("tr")
         tr.innerHTML = `
